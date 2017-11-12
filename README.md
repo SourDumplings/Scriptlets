@@ -1,4 +1,5 @@
 # Scriptlets
+----- 版权所有 酸饺子 -----
 
 脚本说明：
 -bizhidownload

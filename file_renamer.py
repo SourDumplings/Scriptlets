@@ -7,7 +7,7 @@
 
 import os
 
-path = 'E:\\小甲鱼—《零基础入门学习Python》'
+path = 'E:\\程序代码\\数据结构-浙江大学-陈越、何钦铭\\课程示例代码\\'
 
 
 def re_name(path):
@@ -17,14 +17,12 @@ def re_name(path):
         if os.path.isdir(each_file):
             re_name(os.path.join(path, each_file))
             os.chdir(os.pardir)
-        elif os.path.splitext(each_file)[1] == '.py':
+        elif os.path.splitext(each_file)[1] == '.c':
             old_name = each_file
-            new_name = os.path.splitext(each_file)[0].replace('.', '') + '.py'
+            new_name = os.path.splitext(each_file)[0].replace('.', '') + '.h'
             os.rename(old_name, new_name)
 
 
 re_name(path)
-
-
 
 
