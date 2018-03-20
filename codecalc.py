@@ -11,7 +11,7 @@ import os
 import easygui as g
 code_filenum = {}
 code_lines = {}
-code_types = ['.py', '.c', '.cpp', '.pas', '.asm']
+code_types = ['.py', '.c', '.cpp', '.h', '.pas', '.asm']
 
 for each_type in code_types:
     code_filenum.setdefault(each_type, 0)
@@ -58,7 +58,12 @@ else:
 
 text = ''
 for each_type in code_lines:
-    text += '【%s】源文件 %d 个，源代码 %d 行\n' % \
-        (each_type, code_filenum[each_type], code_lines[each_type])
+    if each_type == '.h':
+        code_file_type = "头"
+    else:
+        code_file_type = "源"
+    text += '【%s】%s文件 %d 个，代码 %d 行\n' % \
+        (each_type, code_file_type, code_filenum[
+         each_type], code_lines[each_type])
 
 g.textbox(msg, '统计结果', text)
