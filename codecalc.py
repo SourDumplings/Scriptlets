@@ -11,7 +11,7 @@ import os
 import easygui as g
 code_filenum = {}
 code_lines = {}
-code_types = ['.py', '.c', '.cpp', '.h', '.pas', '.asm']
+code_types = ['.py', '.c', '.cpp', '.h', '.java']
 
 for each_type in code_types:
     code_filenum.setdefault(each_type, 0)
