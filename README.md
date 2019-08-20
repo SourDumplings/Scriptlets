@@ -48,3 +48,5 @@ IOUtils.closeQuietly(os);
 - qrcode
 可以将连接转换为二维码，控制台运行即可
 
+- UUIDUtils&UploadUtils
+生成随机字符串（用于文件名等ID），UploadUtils用于将字符串转为多层目录（避免单目录下文件太多造成性能问题）
