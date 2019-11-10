@@ -58,8 +58,5 @@ java -jar qrcode.jar www.baidu.com D:/Azjc/test bb.jpg
 - UUIDUtils&UploadUtils
 生成随机字符串（用于文件名等ID），UploadUtils用于将字符串转为多层目录（避免单目录下文件太多造成性能问题）
 
-- dom4j
-一个解析XML的Java小工具，有jar和文档
-
 - CookieUtils
 使用Cookie的工具类
