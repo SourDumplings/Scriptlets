@@ -30,7 +30,7 @@
 
 - BeanUtils
 可以自动将map数据填到Java的Bean类，示例：
-```Java
+```java
 BeanUtils.populate(user, map);
 ```
 
@@ -39,14 +39,21 @@ JavaWeb开发中的Servlet需要的Jar包
 
 - IOUtils
 可以很方便的进行输入输出流的对接，示例：
-```Java
+```java
 IOUtils.copy(is, os);
 IOUtils.closeQuietly(is);
 IOUtils.closeQuietly(os);
 ```
 
 - qrcode
-可以将连接转换为二维码，控制台运行即可
+可以将连接转换为二维码，控制台运行命令：
+```
+java -jar qrcode.jar url directoryPath filename
+```
+例如：
+```
+java -jar qrcode.jar www.baidu.com D:/Azjc/test bb.jpg
+```
 
 - UUIDUtils&UploadUtils
 生成随机字符串（用于文件名等ID），UploadUtils用于将字符串转为多层目录（避免单目录下文件太多造成性能问题）
