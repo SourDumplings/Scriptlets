@@ -60,3 +60,6 @@ java -jar qrcode.jar www.baidu.com D:/Azjc/test bb.jpg
 
 - CookieUtils
 使用Cookie的工具类
+
+- RegexpUtils
+正则表达式工具类，可以匹配常用的字符串
