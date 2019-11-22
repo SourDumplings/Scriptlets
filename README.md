@@ -63,3 +63,9 @@ java -jar qrcode.jar www.baidu.com D:/Azjc/test bb.jpg
 
 - RegexpUtils
 正则表达式工具类，可以匹配常用的字符串
+
+- dateTime
+时间处理工具，可以处理网页上的时间格式，用法示例：
+```javascript
+var date = DateTime.format(dateUnformatted, "yyyy-MM-dd HH:mm:ss");
+```
