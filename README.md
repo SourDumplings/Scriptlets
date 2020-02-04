@@ -69,3 +69,14 @@ java -jar qrcode.jar www.baidu.com D:/Azjc/test bb.jpg
 ```javascript
 var date = DateTime.format(dateUnformatted, "yyyy-MM-dd HH:mm:ss");
 ```
+
+- vultr_ss_on_demand
+按需使用 vultr，使用前运行`create.py`，使用完运行`destroy.py`
+使用前准备（~代指用户根目录）：
+    - 建立`~/vultr/ssr`目录
+    - 建立`~/vultr/apikey.txt`，存 API-KEY，并记得在 API-KEY 页面上打开访问
+    - 建立`~/vultr/ssr/ssrPassword.txt`存 SSR 的访问密码
+    - 修改脚本中`userPath`为用户根目录，结尾不带`/`
+使用后在 `~/vultr/ssr` 目录下找到`local.json`文件，记录着 SSR 建立好的信息
+    - 协议是：origin
+    - 混淆：plain
