@@ -91,22 +91,25 @@ def ssh_install_and_run_ss(host, port, user, password, ss_port, ss_password):
     elapsed_ms = get_now_ms() - server_starting_time
     print("time elapsed %fs" % (elapsed_ms / 1000.0))
 
+    ssh.exec_command("rpm -q centos-release|cut -d- -f3")
+    ssh.exec_command(
+        "wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh")
+    ssh.exec_command("chmod +x shadowsocksR.sh")
+
     stdin, stdout, stderr = ssh.exec_command(
-        'docker run -d --rm -p %d:8388 python:3-alpine sh -c "python -m pip install --no-cache-dir https://github.com/shadowsocks/shadowsocks/archive/master.zip && ssserver --fast-open -p 8388 -k %s"' % (
-            ss_port, ss_password))
+        "echo -e '%s\n%d\n12\n\n2\n\n' | ./shadowsocksR.sh 2>&1 | tee shadowsocksR.log" % (
+            ss_password, ss_port))
     stdout = stdout.read().decode()
     print(stdout)
 
     stdin, stdout, stderr = ssh.exec_command("docker ps")
     stdout = stdout.read().decode()
     print(stdout)
-    if stdout.find("python") > -1:
-        print("ss start success")
-        print("port check", port_check(host, ss_port))
-        from ss_created_callback import callback
-        callback(host, ss_port, ss_password, userPath)
-    else:
-        print("start ss failed.")
+
+    print("ss start success")
+    print("port check", port_check(host, ss_port))
+    from ss_created_callback import callback
+    callback(host, ss_port, ss_password, userPath)
     ssh.close()
     return True
 
@@ -115,7 +118,7 @@ def create_server():
     return vultr_call("POST", "server/create", api_key=api_key,
                       DCID=25,
                       VPSPLANID=201,  # 1024 MB RAM,25 GB SSD,1.00 TB BW 5$/mo
-                      OSID=179,  # CoreOS
+                      OSID=167,  # CentOS 7 x64
                       label="auto_" + time.strftime('%Y%m%d-%H%M%S')
 
                       )
@@ -145,5 +148,5 @@ if __name__ == "__main__":
 
     server_starting_time = get_now_ms()
     ssh_install_and_run_ss(host=ip, port=22, user="root", password=password,
-                           ss_port=17141, ss_password=ssrPassword)
+                           ss_port=16666, ss_password=ssrPassword)
     print("wait exit to destroy_all")

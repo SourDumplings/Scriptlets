@@ -10,8 +10,9 @@ def callback(host, port, password, userPath):
         "server": host,
         "server_port": port,
         "password": password,
-        "method": "aes-256-cfb",
-        "timeout": 5
+        "method": "chacha20",
+        "protocol": "origin",
+        "obfs": "http_simple",
     }, indent=4)
     print(ss_local_config)
 
