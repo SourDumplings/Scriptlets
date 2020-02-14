@@ -118,6 +118,7 @@ def create_server():
     return vultr_call("POST", "server/create", api_key=api_key,
                       DCID=25,
                       VPSPLANID=201,  # 1024 MB RAM,25 GB SSD,1.00 TB BW 5$/mo
+                      # VPSPLANID=203,  # 4096 MB RAM,80 GB SSD,3.00 TB BW 20$/mo
                       OSID=167,  # CentOS 7 x64
                       label="auto_" + time.strftime('%Y%m%d-%H%M%S')
 
