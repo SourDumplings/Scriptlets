@@ -58,6 +58,9 @@ def get_new_server_ip_and_password(new_server_sub_id):
     vps_list = vultr_call("GET", "server/list", api_key=api_key)
     if len(vps_list) == 1:
         vps = vps_list[str(new_server_sub_id)]
+        while vps["main_ip"] == "0.0.0.0":
+            vps_list = vultr_call("GET", "server/list", api_key=api_key)
+            vps = vps_list[str(new_server_sub_id)]
         print(vps)
         return vps["main_ip"], vps["default_password"]
 
@@ -116,7 +119,10 @@ def ssh_install_and_run_ss(host, port, user, password, ss_port, ss_password):
 
 def create_server():
     return vultr_call("POST", "server/create", api_key=api_key,
-                      DCID=25,
+                      # DCID 指的是地区码，可以使用 https://api.vultr.com/v1/regions/list 查看
+                      # DCID=25, # 东京
+                      DCID = 34, # 首尔
+                      # DCID = 40, # 新加坡
                       VPSPLANID=201,  # 1024 MB RAM,25 GB SSD,1.00 TB BW 5$/mo
                       # VPSPLANID=203,  # 4096 MB RAM,80 GB SSD,3.00 TB BW 20$/mo
                       OSID=167,  # CentOS 7 x64
