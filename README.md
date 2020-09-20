@@ -83,3 +83,6 @@ var date = DateTime.format(dateUnformatted, "yyyy-MM-dd HH:mm:ss");
 使用后在 `~/vultr/ssr` 目录下找到`local.json`文件，记录着 SSR 建立好的信息
     - 协议是：origin
     - 混淆：plain
+
+- watermarker
+为 PDF 添加水印的脚本，使用时需要仔细调整参数，直到达到满意的效果为止
