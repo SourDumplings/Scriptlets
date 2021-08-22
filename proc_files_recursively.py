@@ -7,19 +7,23 @@ Description:
 '''
 
 import os
+import platform
 
 def process_file(inputDir, inputFile, outputDir):
-    fin = open(os.path.join(inputDir, inputFile), "r")
-    fout = open(os.path.join(outputDir, inputFile), "w+")
+    fin = open(os.path.join(inputDir, inputFile), "r", encoding="UTF-8")
+    fout = open(os.path.join(outputDir, inputFile), "w+", encoding="UTF-8")
     
     inputLines = fin.readlines()
     outputLines = ""
-    if len(inputLines) > 2 and inputLines[0] == '/*' and lines[4] == '*/':
+    if len(inputLines) > 2 and inputLines[0].startswith('/*') and inputLines[4].startswith('*/'):
         outputLines = inputLines[5:]
     else:
         outputLines = inputLines
     
     fout.writelines(outputLines)
+
+    fin.close()
+    fout.close()
 
 
 def process(inputDir, outputDir):
@@ -36,6 +40,9 @@ def process(inputDir, outputDir):
 def main():
     inputPath = "./src"
     outputPath = "./srcOut"
+
+    if platform.system() == "Linux":
+        os.system("rm rf " + outputPath)
 
     print("---------开始处理：%s ---------" % os.path.abspath(inputPath))
     process(inputPath, outputPath)
