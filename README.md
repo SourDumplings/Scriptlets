@@ -22,6 +22,9 @@
 - file_renamer
 批量修改文件名的小脚本
 
+- proc_files_recursively
+递归处理目录的文件的小脚本
+
 - shutdowntimer
 制定定时关机计划的小脚本
 

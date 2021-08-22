@@ -6,7 +6,7 @@ from paramiko import SSHException
 from requests import HTTPError
 from retrying import retry
 
-userPath = "C:\\Users\\sourd"
+userPath = "C:\\Users\\CZ"
 
 
 # ref: https://www.vultr.com/api/
@@ -121,8 +121,8 @@ def create_server():
     return vultr_call("POST", "server/create", api_key=api_key,
                       # DCID 指的是地区码，可以使用 https://api.vultr.com/v1/regions/list 查看
                       # DCID=25, # 东京
-                      DCID = 34, # 首尔
-                      # DCID = 40, # 新加坡
+                      # DCID = 34, # 首尔
+                      DCID=40,  # 新加坡
                       VPSPLANID=201,  # 1024 MB RAM,25 GB SSD,1.00 TB BW 5$/mo
                       # VPSPLANID=203,  # 4096 MB RAM,80 GB SSD,3.00 TB BW 20$/mo
                       OSID=167,  # CentOS 7 x64
