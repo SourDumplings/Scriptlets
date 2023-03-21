@@ -89,3 +89,6 @@ var date = DateTime.format(dateUnformatted, "yyyy-MM-dd HH:mm:ss");
 
 - watermarker
 为 PDF 添加水印的脚本，使用时需要仔细调整参数，直到达到满意的效果为止
+
+- start_n_exe.cpp
+多开 exe 的程序
