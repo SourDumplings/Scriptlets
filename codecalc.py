@@ -9,6 +9,7 @@
 
 import os
 import easygui as g
+
 code_filenum = {}
 code_lines = {}
 code_types = ['.py', '.c', '.cpp', '.h', '.java']
@@ -54,7 +55,8 @@ if percent >= 100:
 恭喜您已完成十万行代码，请继续努力，继续学习！''' % sum_lines
 else:
     msg = '''您目前共累计编写了 %d 行代码，完成进度：%.1f %%
-离十万行代码还差 %d 行，请继续努力！''' % (sum_lines, percent, (100000 - sum_lines))
+离十万行代码还差 %d 行，请继续努力！''' % (
+    sum_lines, percent, (100000 - sum_lines))
 
 text = ''
 for each_type in code_lines:
@@ -63,7 +65,7 @@ for each_type in code_lines:
     else:
         code_file_type = "源"
     text += '【%s】%s文件 %d 个，代码 %d 行\n' % \
-        (each_type, code_file_type, code_filenum[
-         each_type], code_lines[each_type])
+            (each_type, code_file_type, code_filenum[
+                each_type], code_lines[each_type])
 
 g.textbox(msg, '统计结果', text)
