@@ -31,23 +31,6 @@
 - spectrumplot
 根据光谱数据绘制光谱图线的小脚本
 
-- BeanUtils
-可以自动将map数据填到Java的Bean类，示例：
-```java
-BeanUtils.populate(user, map);
-```
-
-- Servlet
-JavaWeb开发中的Servlet需要的Jar包
-
-- IOUtils
-可以很方便的进行输入输出流的对接，示例：
-```java
-IOUtils.copy(is, os);
-IOUtils.closeQuietly(is);
-IOUtils.closeQuietly(os);
-```
-
 - qrcode
 可以将连接转换为二维码，控制台运行命令：
 ```
@@ -57,19 +40,6 @@ java -jar qrcode.jar url directoryPath filename
 ```
 java -jar qrcode.jar www.baidu.com D:/Azjc/test bb.jpg
 ```
-
-- UUIDUtils&UploadUtils
-生成随机字符串（用于文件名等ID），UploadUtils用于将字符串转为多层目录（避免单目录下文件太多造成性能问题）
-
-- CookieUtils
-使用Cookie的工具类
-
-- RegexpUtils
-正则表达式工具类，可以匹配常用的字符串
-
-- HttpClientUtils
-HttpClient 的工具类，用于写 Java 的 http 客户端程序
-
 - dateTime
 时间处理工具，可以处理网页上的时间格式，用法示例：
 ```javascript
@@ -89,6 +59,3 @@ var date = DateTime.format(dateUnformatted, "yyyy-MM-dd HH:mm:ss");
 
 - watermarker
 为 PDF 添加水印的脚本，使用时需要仔细调整参数，直到达到满意的效果为止
-
-- start_n_exe.cpp
-多开 exe 的程序
